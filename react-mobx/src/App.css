@@ -1,0 +1,21 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 60px 24px;
+  text-align: center;
+}
+
+.App-header {
+  height: 60px;
+}
+
+main {
+  flex: 1;
+}
+
+.TODO-List {
+  text-align: left;
+}
