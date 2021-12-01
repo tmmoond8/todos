@@ -1,7 +1,7 @@
-import TodayStore from "./TodayStore";
+import TodoStore from "./TodoStore";
 
 const stores = {
-  todayStore: new TodayStore(),
+  todoStore: new TodoStore(),
 } as const;
 
 export default stores;

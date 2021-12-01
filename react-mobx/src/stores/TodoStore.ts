@@ -7,7 +7,7 @@ interface TODO {
   completed?: boolean;
 }
 
-class TodayStore {
+class TodoStore {
   todos: TODO[] = [];
 
   constructor() {
@@ -31,6 +31,10 @@ class TodayStore {
       console.error("not found :", id);
     }
   };
+
+  getDones = () => {
+    return this.todos.filter(({ completed }) => completed);
+  };
 }
 
-export default TodayStore;
+export default TodoStore;
