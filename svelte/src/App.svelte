@@ -1,40 +1,28 @@
 <script>
-	export const todos = [
-		{ id: '123323213', content: '스벨트로 TODO 만들기', complteted: true }
-	];
+	import { todos, addTodo, toggleTodo } from './todos';
 	export let inputText;
 
-	function addTodo(content) {
-		todos.push({
-			id: 'asd2s',
-			content,
-			complteted: false,
-		})
-		todos = todos;
-		inputText = '';
-	}
-
-	function toggle(index) {
-		todos[index].complteted = !todos[index].complteted;
-		todos = todos;
-	}
 </script>
 
 <main>
 	<h1>Svelte를 사용한 Todo App 코드 입니다.</h1>
 	<div class="input-form">
-		<button on:click={() => addTodo(inputText)}>add</button>
+		<button on:click={() => {
+			addTodo(inputText);
+			inputText = '';
+		}}>add</button>
 		<input type="text" bind:value={inputText} on:keydown={(e) => {
 			if (e.key === 'Enter' && inputText.length > 0) {
 				addTodo(inputText)
+				inputText = '';
 			}
 		}}/>
 	</div>
 	<ol>
-		{#each todos as todo, index }
-			<li on:click|preventDefault={() => toggle(index)}>
-				<label for={todo.id} class={todo.complteted ? "completed" : ""} >
-					<input type="checkbox" id={todo.id} checked={todo.complteted}/> {todo.content}
+		{#each $todos as todo, index }
+			<li on:click|preventDefault={() => toggleTodo(index)}>
+				<label for={todo.id} class={todo.completed ? "completed" : ""} >
+					<input type="checkbox" id={todo.id} checked={todo.completed}/> {todo.content}
 				</label>
 			</li>
 		{/each}
