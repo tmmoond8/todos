@@ -22,11 +22,6 @@
 
 
 <style>
-	.input-form {
-		display: flex;
-		justify-content: center;
-	}
-
 	ol {
 		max-width: 400px;
 		list-style: disc;
