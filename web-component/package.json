@@ -1,0 +1,33 @@
+{
+  "name": "web-component-todo",
+  "version": "1.0.0",
+  "description": "todo by web-component",
+  "main": "index.js",
+  "repository": "https://github.com/tmmoond8/todos.git",
+  "author": "tmmooond8",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "webpack-dev-server --history-api-fallback --host 0.0.0.0"
+  },
+  "dependencies": {
+    "@webcomponents/webcomponentsjs": "^2.6.0",
+    "lit-html": "^2.0.2",
+    "redux-zero": "^5.1.7"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/plugin-transform-runtime": "^7.16.4",
+    "@babel/preset-env": "^7.16.4",
+    "@babel/runtime": "^7.16.3",
+    "babel-loader": "^8.2.3",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "core-js": "^3.19.2",
+    "html-webpack-plugin": "^5.5.0",
+    "rimraf": "^3.0.2",
+    "webpack": "^5.64.4",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.6.0"
+  }
+}
