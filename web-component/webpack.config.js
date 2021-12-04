@@ -9,6 +9,7 @@ module.exports = {
     libraryTarget: "umd",
     filename: "TodoApp.js",
   },
+  mode: "development",
   module: {
     rules: [
       {
