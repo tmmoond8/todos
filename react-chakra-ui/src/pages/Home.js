@@ -4,7 +4,6 @@ import {
   Box,
   Heading,
   VStack,
-  Text,
   Input,
   Flex,
   Button,
@@ -13,6 +12,13 @@ import {
 
 export default function Home() {
   const [todos, setTodos] = React.useState([]);
+  const setTodoByIndex = (index, todo) => {
+    setTodos(
+      todos.map((originTodo, idx) => {
+        return idx === index ? todo : originTodo;
+      })
+    );
+  };
   return (
     <Container maxW="300px" w="100%" m="100px auto" textAlign="center">
       <Box position="relative">
@@ -36,26 +42,36 @@ export default function Home() {
         <Heading as="h1">TODO</Heading>
       </Box>
       <VStack mt="40px" as="ol">
-        {todos.map(({ id, done, todo }) => (
+        {todos.map(({ id, done, todo }, index) => (
           <Flex id={id} as="li" textAlign="left" w="100%" alignItems="center">
             <Checkbox
               size="lg"
               p="0"
               mr="16px"
               height="fit-content"
-              _hover={{
-                background: "gray.100",
-              }}
-              _checked={{
-                textDecoration: "line-through",
+              onChange={(e) => {
+                setTodoByIndex(index, {
+                  done: e.target.checked,
+                  id,
+                  todo,
+                });
               }}
             />
             <Input
               placeholder="input todo ..."
               border="none"
               borderRadius="0"
+              value={todo}
               _focus={{
                 boxShadow: "0 1px #999",
+              }}
+              textDecoration={done ? "line-through" : "none"}
+              onChange={(e) => {
+                setTodoByIndex(index, {
+                  todo: e.target.value,
+                  id,
+                  done,
+                });
               }}
             />
           </Flex>
